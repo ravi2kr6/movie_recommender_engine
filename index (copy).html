@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Movie Recommendation Engine</title>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+<style>
+#formsearch{
+            background: url(img/form.jpg) center fixed;
+			background-size: cover;
+			background-repeat: no-repeat;
+            }
+
+</style>
+
+</head>
+<body>
+<header>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="nacbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Movie Recommendation Engine</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">HOME<span class="sr-only">(current)</span></a></li>
+        <li><a href="collob.php">Colloborative Prediction</a></li>
+		<li><a href="avg1.php">Average Rating</a></li>
+		</li>
+		<form class="navbar-form navbar-left" role="search" metho="POST" action="result.php">
+        <div class="form-group">
+          <input type="text" id="movies" class="form-control" placeholder="Search" values="" name="movie">
+        </div>
+        <button type="submit" class="btn btn-default" name="submit1" >Submit</button>
+      </form>
+       </div>
+	   </div>
+	   </nav>
+</header>
+<div class="ui-widget">
+      <div class="container-fluid" id="formsearch">
+       <div class="col-md-6 col-md-offset-3">
+	
+	<form method="POST"  action="result.php">
+    <label for="search">Movies: </label><br>
+    <div class="form-group form-group-md"><input id="movies1" type="search" class="form-control" name="movie" value=""></div>
+	<button type="submit" class="btn btn-primary btn btn-block" name="submit1">Search</button>
+	</form>
+	</div>
+	</div>
+	<div class="col-md-6 col-md-offset-3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;OR</div>	
+	<div class="col-md-6 col-md-offset-3">			   
+	<form method="POST" class="form-group" action="result1.php">
+	<label for="genres">Genre: </label><br>
+	<input type="checkbox" name="check_list[]" value="Action">Action
+    <input type="checkbox" name="check_list[]" value="Adventure">Adventure 
+    <input type="checkbox" name="check_list[]" value="Animation">Animation
+    <input type="checkbox" name="check_list[]" value="Children's">Children's 
+    <input type="checkbox" name="check_list[]" value="Comedy">Comedy
+    <input type="checkbox" name="check_list[]" value="Crime">Crime
+    <input type="checkbox" name="check_list[]" value="Documentary">Documentary
+    <input type="checkbox" name="check_list[]" value="Drama">Drama 
+    <input type="checkbox" name="check_list[]" value="Fantasy">Fantasy<br>
+    <input type="checkbox" name="check_list[]" value="Film-Noir">Film-Noir
+    <input type="checkbox" name="check_list[]" value="Horror">Horror
+    <input type="checkbox" name="check_list[]" value="Musical">Musical
+    <input type="checkbox" name="check_list[]" value="Mystery">Mystery
+    <input type="checkbox" name="check_list[]" value="Romance">Romance
+    <input type="checkbox" name="check_list[]" value="Sci-Fi">Sci-Fi
+    <input type="checkbox" name="check_list[]" value="Thriller">Thriller 
+    <input type="checkbox" name="check_list[]" value="War">War
+    <input type="checkbox" name="check_list[]" value="Western">Western 
+    <input type="submit" name="submit2" value= "search">
+	</form>
+	
+	
+</div>
+</div>
+<script>
+$(function() {
+    $( "#movies" ).autocomplete({
+        source: 'search.php'
+    });
+});
+$(function() {
+    $( "#movies1" ).autocomplete({
+        source: 'search.php'
+    });
+});
+ </script>
+
+
+</body>
+</html>
